@@ -241,6 +241,7 @@ input::placeholder {
 
 .c-grid-button{
     justify-self: end;
+    align-self: center;
 }
 .c-grid-text{
     grid-column-start: 1;
