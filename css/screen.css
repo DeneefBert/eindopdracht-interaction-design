@@ -1,0 +1,422 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+
+/* Fonts are loaded via Google fonts */
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+    /* colors */
+    --color-light: hsla(238, 90%, 70%, 1);
+    --color-dark: hsla(238, 70%, 9%, 1);
+
+    --color-front: var(--color-dark);
+    --color-back: var(--color-light);
+
+    /* opacity */
+    --muted-opacity: .6;
+
+    /* transitions */
+    --transition-duration: 1.5s;
+    --transition-easing: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    --global-transition-beta: 1s;
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: "Work Sans", Helvetica, arial, sans-serif;
+    color: var(--color-front);
+    background-color: var(--color-back);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "zero" 1;
+    transition-property: color, background-color;
+    transition-duration: calc(var(--transition-duration) / 2);
+    transition-timing-function: var(--transition-easing);
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+    background: var(--color-front);
+    color: white;
+    text-shadow: none;
+}
+
+::selection {
+    background: var(--color-front);
+    color: white;
+    text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+body {
+    display: grid;
+    grid-template-columns: minmax(auto, 29em);
+    justify-content: center;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 48px;
+    margin: 0 0 24px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0 0 24px;
+}
+
+h3 {
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+    margin: 0 0 24px;
+}
+
+ul,
+ol {
+    padding-left: 24px;
+}
+
+li ul,
+li ol {
+    margin-bottom: 0;
+}
+
+blockquote {
+    font-style: normal;
+    font-size: 23px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+blockquote * {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+figcaption {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 8px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: LightGrey;
+    margin: 0 0 24px;
+}
+
+a {
+    transition: all var(--transition-alpha);
+    color: var(--color-front);
+    outline-color: var(--color-front);
+    outline-width: medium;
+    outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+    color: var(--color-front);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-front);
+}
+
+label,
+input {
+    display: block;
+}
+
+select {
+    width: 100%;
+}
+
+input::placeholder {
+    color: gray;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: grid
+    ---
+    Website grid
+*/
+
+.c-grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    height: 100vh;
+}
+
+.c-grid-item{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.c-grid-button{
+    justify-self: end;
+}
+.c-grid-text{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
+    align-self: end;
+    text-align: center;
+}
+
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    margin-bottom: 48px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    margin-bottom: auto;
+}
+
+/*
+    Component: Sun
+    ---
+    The sun
+*/
+
+.c-sun {
+    width: 22px;
+    height: 22px;
+    fill: var(--color-front);
+    transition-property: fill;
+    transition-duration: calc(var(--transition-duration) / 2);
+    transition-timing-function: var(--transition-easing);
+}
+.c-night {
+    width: 22px;
+    height: 22px;
+    fill: var(--color-front);
+    transition-property: fill;
+    transition-duration: calc(var(--transition-duration) / 2);
+    transition-timing-function: var(--transition-easing);
+}
+
+.c-logo .c-sun {
+    margin-right: 8px;
+}
+
+
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: Mute
+    Mute with opacity
+*/
+
+.u-muted {
+    opacity: var(--muted-opacity);
+}
+
+/*------------------------------------*\
+#STATES
+\*------------------------------------*/
+
+/*
+    Change the theme using CSS vars.
+*/
+
+
+.is-night {
+    --color-front: var(--color-light);
+    --color-back: var(--color-dark);
+}
+
+.is-freezing {
+    --color-back: hsla(200,100%,73%,1);
+    --color-front: hsla(200,20%,20%,1);
+}
+.is-cold{
+    --color-back: hsla(187,100%,79%,1);
+    --color-front: hsla(187,20%,20%,1);
+}
+.is-chilly{
+    --color-back: hsla(162,100%,92%,1);
+    --color-front: hsla(162,20%,30%,1);
+}
+.is-nice{
+    --color-back: hsla(65,98%,80%,1);
+    --color-front: hsla(65,20%,20%,1);
+}
+.is-warm{
+    --color-back: hsla(48,100%,57%,1);
+    --color-front: hsla(48,30%,20%,1);
+}
+.is-hot{
+    --color-back: hsla(27,100%,52%,1);
+    --color-front: hsla(27,30%,15%,1);
+}
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
